@@ -17,11 +17,11 @@ def predict():
     final_features = [np.array(features)]
     prediction = model.predict(final_features)
     if prediction == [3.0]:
-        prediction = "high level"
+        prediction = "high"
     elif prediction == [2.0]:
-        prediction = "mid level"
+        prediction = "mid "
     else:
-        prediction = "low level"
+        prediction = "low"
 
     return render_template('index.html', prediction_text=f"The risk level is {prediction}")
 
