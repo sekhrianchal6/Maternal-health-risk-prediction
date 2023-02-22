@@ -1,3 +1,4 @@
+
 import pickle
 import streamlit as st
 
@@ -20,16 +21,16 @@ def predict_risk(age, systolicbp, diastolicbp, bs, bodytemp):
 def main():
     st.title("Maternal Health Risk Prediction")
     html_temp = """
-    <div style="background-color:tomato;padding:10px">
+    <div style="background-color:green;padding:10px">
     <h2 style="color:white;text-align:center;"> Maternal Health Risk Prediction ML App </h2>
     </div>
     """
     st.markdown(html_temp, unsafe_allow_html=True)
-    age = st.text_input("Age", "Type Here")
-    systolicbp = st.text_input("SystolicBP", "Type Here")
-    diastolicbp = st.text_input("DiastolicBP", "Type Here")
-    bs = st.text_input("BS", "Type Here")
-    bodytemp = st.text_input("BodyTemp", "Type Here")
+    age = st.text_input("Age")
+    systolicbp = st.text_input("SystolicBP")
+    diastolicbp = st.text_input("DiastolicBP")
+    bs = st.text_input("BS")
+    bodytemp = st.text_input("BodyTemp")
     result = ""
     if st.button("Predict"):
         result = predict_risk(age, systolicbp, diastolicbp, bs, bodytemp)
@@ -40,9 +41,6 @@ def main():
         elif result == [0.0]:
             result = "Low"
     st.success('The risk level is {}'.format(result))
-    if st.button("About"):
-        st.text("Lets LEarn")
-        st.text("Built with Streamlit")
 
 
 if __name__ == '__main__':
